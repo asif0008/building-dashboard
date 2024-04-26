@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Floors</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    .range-slider-container {
+      position: relative;
+      width: 100%;
+      margin-top: 20px; /* Space for lines */
+    }
+
+    .form-range {
+      width: 99%;
+      z-index: 2; /* Ensure slider is above the lines */
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .range-marks {
+      display: flex;
+      position: absolute;
+      width: 99%;
+      top: 36%; /* Adjust to align with the middle of the slider */
+      left: 0;
+      pointer-events: none;
+      transform: translateY(-50%); /* Center marks vertically */
+    }
+
+    .mark {
+      position: absolute;
+      display: block;
+      height: 9px;
+      border-radius: 8px;
+      width: 1px;
+      padding: 1px;
+      background: #fff;
+      top: 5px;
+      transform: translateY(-50%);
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      background: #fff !important; /* Gray track */
+      height: 2px;
+    }
+
+    input[type="range"]::-moz-range-track {
+      background: #fff !important; /* Gray track */
+      height: 2px;
+    }
+
+    input[type="range"]::-ms-track {
+      background: #fff !important; /* Gray track */
+      height: 2px;
+    }
+
+    /* Styles the thumb */
+    input[type="range"]::-webkit-slider-thumb {
+      height: 20px;
+      width: 20px;
+      background: blue !important; /* Blue thumb */
+      cursor: pointer;
+      border-radius: 50%; /* Makes it circular */
+      margin-top: -9px; /* Adjusts the position to be centered on the track */
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      height: 20px;
+      width: 20px;
+      background: blue !important; /* Blue thumb */
+      cursor: pointer;
+      border-radius: 50%; /* Makes it circular */
+    }
+
+    input[type="range"]::-ms-thumb {
+      height: 20px;
+      width: 20px;
+      background: blue !important; /* Blue thumb */
+      cursor: pointer;
+      border-radius: 50%; /* Makes it circular */
+    }
+
+    .range-container input[type="range"]::-webkit-slider-thumb {
+  background-color: red;
+}
+
+.range-container input[type="range"]::-moz-range-thumb {
+  background-color: red;
+}
+
+.range-container input[type="range"]::-ms-thumb {
+  background-color: red;
+}
+
+    .rangeContainer {
+      padding: 0px 15px 0px 15px;
+      background-color: rgba(0, 0, 0, 0.482);
+      position: absolute;
+      width: 20px;
+      top: 50%; /* Vertically centering */
+      right: 2%; /* Positioned 2% from the right */
+      transform: translate(50%, -50%) rotate(90deg); /* Rotating 90 degrees and centering */
+      transform-origin: center center; /* Rotating around the center */
+    }
+    .imagesContainer {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .images {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity .5s ease;
+    }
+    body {
+      background-color: #e9e9e9;
+    }
+    /* Optional: Styles the fill part of the track to a different color (for WebKit browsers) */
+    /* input[type="range"]::-webkit-slider-runnable-track {
+          background: linear-gradient(90deg, #4caf50 50%, #888 50%);
+      } */
+  </style>
+</head>
+<body>
+  <!-- Add your images here with unique IDs -->
+  <div class="imagesContainer">
+    <div class="rangeContainer w-25 d-flex align-items-center justify-content-center" style="gap:10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="
+          width: 12px;fill: #fff;"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg>
+        <div class="range-slider-container m-0 w-100">
+        <input type="range" class="form-range" min="0" max="7" id="floorsRange" value="1">
+        <div class="range-marks">
+          <span class="mark" style="left: 0%"></span>
+          <span class="mark" style="left: 14.2857%"></span>
+          <span class="mark" style="left: 28.5714%"></span>
+          <span class="mark" style="left: 42.8571%"></span>
+          <span class="mark" style="left: 57.1429%"></span>
+          <span class="mark" style="left: 71.4286%"></span>
+          <span class="mark" style="left: 85.7143%"></span>
+          <span class="mark" style="left: 100%"></span>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="
+        width: 12px;fill: #fff;"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path>
+      </svg>
+    </div>
+    <img src="./assets/final/0.jpg" class="images" id="image0" style="display: none" />
+    <img src="./assets/final/1.png" class="images" id="image1" />
+    <img src="./assets/final/2.png" class="images" id="image2" style="display: none" />
+    <img src="./assets/final/3.png" class="images" id="image3" style="display: none" />
+    <img src="./assets/final/4.png" class="images" id="image4" style="display: none" />
+    <img src="./assets/final/5.png" class="images" id="image5" style="display: none" />
+    <img src="./assets/final/6.png" class="images" id="image6" style="display: none" />
+    <img src="./assets/final/7.png" class="images" id="image7" style="display: none" />
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("#floorsRange").on("input", function () {
+        var value = $(this).val();
+        if (value == 0) {
+          $("body").css("background-color", "#DDE0E7");
+        } else {
+          $("body").css("background-color", "#E9E9E9");
+        }
+        // Hide all images
+        $("[id^=image]").hide();
+        // Show the image corresponding to the current value
+        $("#image" + value).show();
+      });
+    });
+  </script>
+</body>
+</html>
