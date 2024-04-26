@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.primary-blue {
+  color: rgb(0, 107, 206);
+}
+
+.text-dark {
+  color: rgb(17, 17, 17);
+}
+
+.shadow {
+  box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.06) !important;
+}
+
+.w100 {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.w60 {
+  width: 50% !important;
+  height: 100% !important;
+}
+
+.nav-links {
+  position: relative;
+  font-size: 16px;
+}
+.nav-links::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(0, 107, 206);
+  left: 0;
+  bottom: -5px;
+  transition: width 0.5s ease;
+}
+.nav-links:hover {
+  color: rgb(0, 107, 206);
+}
+.nav-links:hover::after {
+  width: 100%;
+}
+.nav-links.active {
+  color: rgb(0, 107, 206);
+}
+.nav-links.active::after {
+  width: 100%;
+}
+
+.card-widget {
+  width: 330px;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+.card-widget h4 {
+  color: rgba(17, 17, 17, 0.6);
+  transition: color 0.3s ease;
+}
+.card-widget p, .card-widget h6 {
+  transition: color 0.3s ease;
+}
+.card-widget .svg-bg {
+  background-color: rgba(0, 107, 206, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  transition: background-color 0.3s ease;
+}
+.card-widget:hover {
+  background: linear-gradient(101.78deg, #00D1FA 0%, #006BCE 100%);
+}
+.card-widget:hover h6, .card-widget:hover p, .card-widget:hover h4 {
+  color: #fff !important;
+}
+.card-widget:hover .svg-bg {
+  background-color: #fff;
+}
+
+.weather-sec {
+  background: linear-gradient(101.78deg, #00D1FA 0%, #006BCE 100%);
+  box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+}
+
+.footer table .notifiction {
+  display: inline-block;
+  border: 1px solid rgb(0, 107, 206);
+  border-radius: 8px;
+  padding: 8px;
+}
+.footer table .unacknowledged {
+  background: linear-gradient(101.78deg, #FF7575 0%, #CE0000 100%);
+  padding: 9px 35px;
+  border-radius: 8px;
+  display: inline-block;
+  color: #fff;
+}
+.footer table .acknowledged {
+  background: linear-gradient(101.78deg, #75ff85 0%, #0ac401 100%);
+  padding: 9px 45px;
+  border-radius: 8px;
+  display: inline-block;
+  color: #fff;
+}
+
+.progress-bar {
+  height: 10px;
+  border-radius: 6px;
+}
+
+.popup .border-badge {
+  background-image: url("../images/pop-up-bg.svg");
+}
+.popup .border-badge::before {
+  background: url("../images/bg-side-svg.svg") no-repeat center/cover;
+  content: "";
+  position: absolute;
+  top: -3%;
+  right: -14%;
+  width: 58px;
+  height: 48px;
+}
+.popup .border-badge::after {
+  background: url("../images/svg-radius.svg") no-repeat center/cover;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 23px;
+  height: 23px;
+  border-right: 19px solid rgb(217, 217, 217);
+  border-bottom: 20px solid rgba(217, 217, 217, 0);
+}
+
+@media (max-width: 1080px) {
+  .footer .bg-widgetsBg {
+    overflow-x: scroll;
+  }
+}
+/* Building css */
+.range-slider-container {
+  position: relative;
+  width: 100%;
+  margin-top: 20px; /* Space for lines */
+}
+
+.form-range {
+  width: 101%;
+  z-index: 2; /* Ensure slider is above the lines */
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.range-marks {
+  display: flex;
+  position: absolute;
+  width: 99%;
+  top: 36%; /* Adjust to align with the middle of the slider */
+  left: 0;
+  pointer-events: none;
+  transform: translateY(-50%); /* Center marks vertically */
+}
+
+.mark {
+  position: absolute;
+  display: block;
+  height: 9px;
+  border-radius: 8px;
+  width: 1px;
+  padding: 1px;
+  background: #fff;
+  top: 5px;
+  transform: translateY(-50%);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: #fff !important; /* Gray track */
+  height: 2px;
+}
+
+input[type=range]::-moz-range-track {
+  background: #fff !important; /* Gray track */
+  height: 2px;
+}
+
+input[type=range]::-ms-track {
+  background: #fff !important; /* Gray track */
+  height: 2px;
+}
+
+/* Styles the thumb */
+input[type=range]::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  background: blue !important; /* Blue thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Makes it circular */
+  margin-top: -9px; /* Adjusts the position to be centered on the track */
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  background: blue !important; /* Blue thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Makes it circular */
+}
+
+input[type=range]::-ms-thumb {
+  height: 20px;
+  width: 20px;
+  background: blue !important; /* Blue thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Makes it circular */
+}
+
+.range-container input[type=range]::-webkit-slider-thumb {
+  background-color: red;
+}
+
+.range-container input[type=range]::-moz-range-thumb {
+  background-color: red;
+}
+
+.range-container input[type=range]::-ms-thumb {
+  background-color: red;
+}
+
+.rangeContainer {
+  padding: 0px 15px 0px 15px;
+  background-color: rgba(0, 0, 0, 0.482);
+  position: absolute;
+  width: 68%;
+  top: 50%; /* Vertically centering */
+  right: 5%; /* Positioned 2% from the right */
+  transform: translate(50%, -50%) rotate(270deg); /* Rotating 90 degrees and centering */
+  transform-origin: center center; /* Rotating around the center */
+}
+
+.imagesContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.images {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: opacity 0.5s ease;
+  border-radius: 24px;
+}/*# sourceMappingURL=style.css.map */
